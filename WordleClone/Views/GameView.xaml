@@ -5,7 +5,7 @@
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
              xmlns:local="clr-namespace:WordleClone.Views"
              xmlns:vm="clr-namespace:WordleClone.ViewModels"
-             xmlns:uc="clr-namespace:WordleClone.Views.Controls"
+             xmlns:uc="clr-namespace:WordleClone.Views.Controls" xmlns:classes="clr-namespace:WordleClone.Classes"
              mc:Ignorable="d" 
              d:DesignHeight="450" 
              d:DesignWidth="800">
@@ -16,31 +16,31 @@
 
     <StackPanel VerticalAlignment="Center"
                 DataContext="{StaticResource vM}">
-        <!--<ItemsControl DataContext="{StaticResource vM}" 
-                      ItemsSource="{Binding Guesses}">
+        <ItemsControl DataContext="{StaticResource vM}" 
+                      ItemsSource="{Binding GuessItems}">
             <ItemsControl.ItemTemplate>
                 <DataTemplate>
                     <uc:GuessItem/>
                 </DataTemplate>
             </ItemsControl.ItemTemplate>
-        </ItemsControl>-->
+        </ItemsControl>
 
-        <StackPanel Orientation="Horizontal"
+        <!--<StackPanel Orientation="Horizontal"
                     HorizontalAlignment="Center">
             <uc:LetterItem Letter="{Binding Option1}"/>
             <uc:LetterItem Letter="{Binding Option2}"/>
             <uc:LetterItem Letter="{Binding Option3}"/>
             <uc:LetterItem Letter="{Binding Option4}"/>
             <uc:LetterItem Letter="{Binding Option5}"/>
-        </StackPanel>
+        </StackPanel>-->
 
-        <TextBox HorizontalAlignment="Center"
-                 FontSize="18"
-                 Padding="10"
-                 Width="200"
-                 HorizontalContentAlignment="Center"
-                 MaxLength="5"
-                 Text="{Binding UserInput, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"/>
+        <classes:RestrictedTextBox HorizontalAlignment="Center"
+                                   FontSize="18"
+                                   Padding="10"
+                                   Width="200"
+                                   HorizontalContentAlignment="Center"
+                                   MaxLength="5"
+                                   Text="{Binding UserInput, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"/>
 
     </StackPanel>
 </UserControl>

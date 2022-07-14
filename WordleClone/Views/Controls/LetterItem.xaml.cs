@@ -20,8 +20,6 @@ namespace WordleClone.Views.Controls
     /// </summary>
     public partial class LetterItem : UserControl
     {
-
-
         public string Letter
         {
             get { return (string)GetValue(LetterProperty); }
@@ -31,7 +29,6 @@ namespace WordleClone.Views.Controls
         // Using a DependencyProperty as the backing store for Letter.  This enables animation, styling, binding, etc...
         public static readonly DependencyProperty LetterProperty =
             DependencyProperty.Register("Letter", typeof(string), typeof(LetterItem), new PropertyMetadata(null));
-
 
         public LetterItem()
         {
