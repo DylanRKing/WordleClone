@@ -7,29 +7,40 @@
              xmlns:vm="clr-namespace:WordleClone.ViewModels"
              xmlns:uc="clr-namespace:WordleClone.Views.Controls"
              mc:Ignorable="d" 
-             d:DesignHeight="450" d:DesignWidth="800">
+             d:DesignHeight="450" 
+             d:DesignWidth="800">
 
     <UserControl.Resources>
         <vm:GameViewModel x:Key="vM"/>
     </UserControl.Resources>
 
-    <Grid>
-    <ItemsControl DataContext="{StaticResource vM}" 
-                  ItemsSource="{Binding Guesses}">
-        <ItemsControl.ItemTemplate>
-            <DataTemplate>
-                <uc:GuessItem/>
-            </DataTemplate>
-        </ItemsControl.ItemTemplate>
-    </ItemsControl>
+    <StackPanel VerticalAlignment="Center"
+                DataContext="{StaticResource vM}">
+        <!--<ItemsControl DataContext="{StaticResource vM}" 
+                      ItemsSource="{Binding Guesses}">
+            <ItemsControl.ItemTemplate>
+                <DataTemplate>
+                    <uc:GuessItem/>
+                </DataTemplate>
+            </ItemsControl.ItemTemplate>
+        </ItemsControl>-->
 
-        <StackPanel Orientation="Horizontal">
-            <uc:LetterItem/>
-            <uc:LetterItem/>
-            <uc:LetterItem/>
-            <uc:LetterItem/>
-            <uc:LetterItem/>
+        <StackPanel Orientation="Horizontal"
+                    HorizontalAlignment="Center">
+            <uc:LetterItem Letter="{Binding Option1}"/>
+            <uc:LetterItem Letter="{Binding Option2}"/>
+            <uc:LetterItem Letter="{Binding Option3}"/>
+            <uc:LetterItem Letter="{Binding Option4}"/>
+            <uc:LetterItem Letter="{Binding Option5}"/>
         </StackPanel>
-        
-    </Grid>
+
+        <TextBox HorizontalAlignment="Center"
+                 FontSize="18"
+                 Padding="10"
+                 Width="200"
+                 HorizontalContentAlignment="Center"
+                 MaxLength="5"
+                 Text="{Binding UserInput, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"/>
+
+    </StackPanel>
 </UserControl>
